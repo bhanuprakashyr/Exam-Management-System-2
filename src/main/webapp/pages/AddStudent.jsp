@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
+<form action="addstudent" method="post">
 Student Id:
   <input type="text" name="StudentId" >
   <br><br>
@@ -16,6 +16,9 @@ First Name:
   &emsp;&ensp;&emsp;&ensp;
 Last Name:
   <input type="text" name="Lname" >
+  <br><br>
+  DOB:
+  <input type="text" name="DOB" >
   <br><br>
 Major:
   <input type="text" name="Major" >
@@ -37,6 +40,9 @@ State:
   <br><br>
 Zipcode:
   <input type="text" name="Zipcode" >
+  <br><br>
+  Country:
+  <input type="text" name="Country" >
   <br><br>
   <input type="submit" value="Add Student">
   <input type="submit" value="Cancel">

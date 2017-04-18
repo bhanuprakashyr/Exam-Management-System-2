@@ -7,15 +7,13 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by yeriyub on 4/12/17.
- */
+
 public class DatabaseUtils {
     public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:/Users/yeriyub/dev/projects/vivek/Exam-Management-System-2/abc.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Vivek Patil\\git\\ems.db");
             return connection;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -25,9 +23,12 @@ public class DatabaseUtils {
 
     public static Map getDatabaseTablesInfo() {
         Map createTableQueries = new HashMap();
-        createTableQueries.put("user", "create table if not exists user (id VARCHAR(20), password VARCHAR(20), email VARCHAR(30), type VARCHAR(20), PRIMARY KEY (id))");
+        createTableQueries.put("user", "create table if not exists user (id VARCHAR(20), password VARCHAR(20), PRIMARY KEY (id))");
+        
         return createTableQueries;
     }
+    
+    
 
 
     public static void createTable(String query) {

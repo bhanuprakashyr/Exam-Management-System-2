@@ -16,13 +16,18 @@ public class LoginController extends HttpServlet {
     public void service(HttpServletRequest servletRequest, HttpServletResponse servletResponse)
             throws ServletException, IOException {
         LoginService loginService = new LoginServiceImpl();
+        
+        
         String userName = servletRequest.getParameter("");
         String password = servletRequest.getParameter("");
         boolean isValidUser = loginService.isValidateLoginCredentials(userName,password);
         if(isValidUser){
-            servletResponse.getWriter().write("Hello darling");
+        	if(userName=="700000000")
+        		servletResponse.sendRedirect("FacultyOptions.jsp");
+        	else
+        		servletResponse.sendRedirect("StudentOptions.jsp");
         }else {
-            servletResponse.getWriter().write("Wrong Password");
+        	servletResponse.sendRedirect("Signin.jsp");   
         }
     }
 }
