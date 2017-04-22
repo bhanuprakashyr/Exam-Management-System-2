@@ -39,7 +39,7 @@ public class AddStudentController extends HttpServlet {
 		String state=request.getParameter("State");
 		String country=request.getParameter("Country");
 		int zipcode=Integer.parseInt(request.getParameter("Zipcode"));
-		//
+	
 AddStudentService addStudentService=new AddStudentServiceImpl();
 addStudentService.addStudent(studentId,Fname,Lname,DOB,major,email,phone,address,city,state,zipcode,country);
 			}

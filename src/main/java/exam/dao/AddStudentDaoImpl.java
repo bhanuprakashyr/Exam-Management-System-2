@@ -10,7 +10,7 @@ public class AddStudentDaoImpl implements AddStudentDao {
 	{
 		try{
 			Connection connection = DatabaseUtils.getConnection();
-			PreparedStatement statement=connection.prepareStatement("insert into student(Student_id,Fname,Lname,DOB,Major,Emailid,Phone,Address ,City,State,Zipcode,Country) values(?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement statement=connection.prepareStatement("insert into student(Student_id,Fname,Lname,DOB,Major,Emailid,Phone,Address ,City,State,Zipcode,Country) values(?,?,?,str_to_date(?, '%Y-%m-%d'),?,?,?,?,?,?,?,?)");
 			statement.setInt(1, id);
 			statement.setString(2, fName);
 			statement.setString(3, lName);
@@ -26,7 +26,7 @@ public class AddStudentDaoImpl implements AddStudentDao {
 			PreparedStatement statement1=connection.prepareStatement("insert into user(id,password) values(?,?)");
 			statement1.setInt(1, id);
 			statement1.setInt(2, id);
-			int count= statement1.executeUpdate();
+			int count= statement.executeUpdate();
 
 			if(count>0)
 			{
