@@ -12,8 +12,8 @@ public class DatabaseUtils {
     public static Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Vivek Patil\\git\\ems.db");
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMS","root","vrp@12345");
             return connection;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
